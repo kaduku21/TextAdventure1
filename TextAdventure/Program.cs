@@ -8,6 +8,21 @@ namespace TextAdventure
     {
         public static void Game()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("        (                  )              (               (      *         ");
+            Console.WriteLine("   (    )\\ )            ( /(   *   )      )\\ )       *   ))\\ ) (  `        ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("   )\\  (()/( (   (  (   )\\())` )  /(   ( (()/((    ` )  /(()/( )\\))(  (    ");
+            Console.WriteLine("((((_)( /(_)))\\  )\\ )\\ ((_)\\  ( )(_))  )\\ /(_))\\    ( )(_))(_)|(_)()\\ )\\   ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(" )\\ _ )(_))_((_)((_|(_) _((_)(_(_())_ ((_|_))((_)  (_(_()|_)) (_()((_|(_)  ");
+            Console.WriteLine(" (_)_\\(_)   \\ \\ / /| __| \\| ||_   _| | | | _ \\ __| |_   _|_ _||  \\/  | __| ");
+            Console.WriteLine("  / _ \\ | |) \\ V / | _|| .` |  | | | |_| |   / _|    | |  | | | |\\/| | _|  ");
+            Console.WriteLine(" /_/ \\_\\|___/ \\_/  |___|_|\\_|  |_|  \\___/|_|_\\___|   |_| |___||_|  |_|___| ");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.Green;
             string playerClass;
             List<string> classList = new List<string> { "barbarian", "bard", "cleric", "druid" };
             Console.WriteLine("Welcome to CJ and Kaitlin's Adventure game!");
@@ -28,9 +43,10 @@ namespace TextAdventure
                 {
                     Console.WriteLine($"Do not act so foolish {playerName}!\n" +
                     $"You cannot adventure whilst professing to be {playerClass}! Pick one from the list!");
-                    ClassOptions();
-                    playerClass = Console.ReadLine();
-                    ClassPicker(playerClass.ToLower());
+                    goto Repick;
+                    //ClassOptions();
+                    //playerClass = Console.ReadLine();
+                    //ClassPicker(playerClass.ToLower());
                 }
             }
             string answer = Console.ReadLine().ToLower();
@@ -80,7 +96,7 @@ namespace TextAdventure
                         Console.Write(c);
                         Thread.Sleep(10);
                     }
-                    Console.WriteLine("Do you want to proceed? Y/N: ");
+                    Console.Write("Do you want to proceed? Y/N: ");
                     break;
 
                 case "bard":
@@ -91,7 +107,7 @@ namespace TextAdventure
                         Console.Write(c);
                         Thread.Sleep(10);
                     }
-                    Console.WriteLine("Do you want to proceed? Y/N: ");
+                    Console.Write("Do you want to proceed? Y/N: ");
                     break;
 
                 case "cleric":
@@ -103,7 +119,7 @@ namespace TextAdventure
                         Console.Write(c);
                         Thread.Sleep(10);
                     }
-                    Console.WriteLine("Do you want to proceed? Y/N: ");
+                    Console.Write("Do you want to proceed? Y/N: ");
                     break;
 
                 case "druid":
@@ -114,7 +130,7 @@ namespace TextAdventure
                         Console.Write(c);
                         Thread.Sleep(10);
                     }
-                    Console.WriteLine("Do you want to proceed? Y/N: ");
+                    Console.Write("Do you want to proceed? Y/N: ");
                     break;
             }
 
