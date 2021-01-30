@@ -69,14 +69,19 @@ namespace TextAdventure
             PickedClass bard = new PickedClass();
             bard.ClassName = "Bard";
             bard.Health = 20;
-            bard.Spells = new List<string>() { "test", "test2" };
-            Spell vMockery = new Spell();
-            vMockery.SpellName = "Vicious Mockery";
-            vMockery.Description = "You unleash a string of insults laced with subtle enchantments at a creature you can see within range. \n" +
-                "If the target can hear you (though it need not understand you),\n" +
-                "it must succeed on a Wisdom saving throw or take 1d4 psychic damage and have disadvantage \n" +
-                "on the next Attack roll it makes before the end of its next turn.";
+            Spell dissonantWhispers = new Spell();
+            dissonantWhispers.SpellName = "Dissonant Whispers";
+            dissonantWhispers.Description = "You whisper a discordant melody that only one creature of your choice within range can hear, \n" +
+                "wracking it with terrible pain.The target must make a Wisdom saving throw.On a failed save, \n" +
+                "it takes 3d6 psychic damage and must immediately use its reaction, \n" +
+                "if available, to move as far as its speed allows away from you. \n" +
+                "The creature doesn’t move into obviously dangerous ground, such as a fire or a pit. \n" +
+                "On a successful save, the target takes half as much damage and doesn’t have to move away. \n" +
+                "A deafened creature automatically succeeds on the save.";
+            string whisper = Console.ReadLine();
+            dissonantWhispers.Action = $"";
 
+            bard.Spells = new List<Spell>() { dissonantWhispers};
 
             PickedClass barbarian = new PickedClass();
             barbarian.ClassName = "Barbarian";
@@ -95,12 +100,13 @@ namespace TextAdventure
     {
         public string ClassName { get; set; }
         public int Health { get; set; }
-        public List<string> Spells { get; set; }
+        public List<Spell> Spells { get; set; }
     }
     public class Spell
     {
         public string SpellName { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; } 
+        public string Action { get; set; }
     }
     public class Enemy
     {

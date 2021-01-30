@@ -25,7 +25,7 @@ namespace TextAdventure
 
             Console.ForegroundColor = ConsoleColor.Red;
             
-            Console.WriteLine("Welcome to CJ and Kaitlin's Adventure game!");
+            Console.WriteLine("Welcome to CJ's Adventure game!");
             Console.Write("What is your name?: ");
             player.playerName = Console.ReadLine();
             Console.WriteLine($"Welcome {player.playerName}!");
@@ -35,7 +35,7 @@ namespace TextAdventure
             if(ClassMethods.classList.Contains(player.playerClass))
             {
                 Console.WriteLine($"You picked {player.playerClass}!");
-                ClassPicker(classMethods.playerClass);
+                ClassPicker(player.playerClass);
             }
             else
             {
