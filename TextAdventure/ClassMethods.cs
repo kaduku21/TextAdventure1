@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-
+using static TextAdventure.PlayerClasses;
+using static TextAdventure.Spells;
 namespace TextAdventure
 {
     class ClassMethods
     {
-        //public Player player = new Player();
-        public static ClassMethods classMethods = new ClassMethods();
-        public string playerClass { get; set; }
+        //public string playerClass { get; set; }
         public static List<string> classList = new List<string> { "barbarian", "bard", "cleric", "druid" };
         public static void ClassOptions()
         {
@@ -64,50 +63,9 @@ namespace TextAdventure
                     break;
             }
         }
-        public void ClassesandSpells()
-        {
-            PickedClass bard = new PickedClass();
-            bard.ClassName = "Bard";
-            bard.Health = 20;
-            Spell dissonantWhispers = new Spell();
-            dissonantWhispers.SpellName = "Dissonant Whispers";
-            dissonantWhispers.Description = "You whisper a discordant melody that only one creature of your choice within range can hear, \n" +
-                "wracking it with terrible pain.The target must make a Wisdom saving throw.On a failed save, \n" +
-                "it takes 3d6 psychic damage and must immediately use its reaction, \n" +
-                "if available, to move as far as its speed allows away from you. \n" +
-                "The creature doesn’t move into obviously dangerous ground, such as a fire or a pit. \n" +
-                "On a successful save, the target takes half as much damage and doesn’t have to move away. \n" +
-                "A deafened creature automatically succeeds on the save.";
-            string whisper = Console.ReadLine();
-            dissonantWhispers.Action = $"";
-
-            bard.Spells = new List<Spell>() { dissonantWhispers};
-
-            PickedClass barbarian = new PickedClass();
-            barbarian.ClassName = "Barbarian";
-            barbarian.Health = 40;
-        }
+       
     }
 
-    public class Player
-    {
-        public string playerName { get; set; }
-        public string playerClass { get; set; }
-        public string playerHealth { get; set; }
-        public List<string> spells { get; set; }
-    }
-    public class PickedClass
-    {
-        public string ClassName { get; set; }
-        public int Health { get; set; }
-        public List<Spell> Spells { get; set; }
-    }
-    public class Spell
-    {
-        public string SpellName { get; set; }
-        public string Description { get; set; } 
-        public string Action { get; set; }
-    }
     public class Enemy
     {
         public string EnemyName { get; set; }
