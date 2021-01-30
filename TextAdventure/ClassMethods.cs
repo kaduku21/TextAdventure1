@@ -7,6 +7,7 @@ namespace TextAdventure
 {
     class ClassMethods
     {
+        //public Player player = new Player();
         public static ClassMethods classMethods = new ClassMethods();
         public string playerClass { get; set; }
         public static List<string> classList = new List<string> { "barbarian", "bard", "cleric", "druid" };
@@ -62,7 +63,48 @@ namespace TextAdventure
                     Console.Write("Do you want to proceed? Y/N: ");
                     break;
             }
-
         }
+        public void ClassesandSpells()
+        {
+            PickedClass bard = new PickedClass();
+            bard.ClassName = "Bard";
+            bard.Health = 20;
+            bard.Spells = new List<string>() { "test", "test2" };
+            Spell vMockery = new Spell();
+            vMockery.SpellName = "Vicious Mockery";
+            vMockery.Description = "You unleash a string of insults laced with subtle enchantments at a creature you can see within range. \n" +
+                "If the target can hear you (though it need not understand you),\n" +
+                "it must succeed on a Wisdom saving throw or take 1d4 psychic damage and have disadvantage \n" +
+                "on the next Attack roll it makes before the end of its next turn.";
+
+
+            PickedClass barbarian = new PickedClass();
+            barbarian.ClassName = "Barbarian";
+            barbarian.Health = 40;
+        }
+    }
+
+    public class Player
+    {
+        public string playerName { get; set; }
+        public string playerClass { get; set; }
+        public string playerHealth { get; set; }
+        public List<string> spells { get; set; }
+    }
+    public class PickedClass
+    {
+        public string ClassName { get; set; }
+        public int Health { get; set; }
+        public List<string> Spells { get; set; }
+    }
+    public class Spell
+    {
+        public string SpellName { get; set; }
+        public string Description { get; set; }
+    }
+    public class Enemy
+    {
+        public string EnemyName { get; set; }
+        public int EnemyHealth { get; set; }
     }
 }

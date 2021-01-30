@@ -8,6 +8,7 @@ namespace TextAdventure
     {
         public static void Game()
         {
+            Player player = new Player();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("        (                  )              (               (      *         ");
             Console.WriteLine("   (    )\\ )            ( /(   *   )      )\\ )       *   ))\\ ) (  `        ");
@@ -26,21 +27,21 @@ namespace TextAdventure
             
             Console.WriteLine("Welcome to CJ and Kaitlin's Adventure game!");
             Console.Write("What is your name?: ");
-            string playerName = Console.ReadLine();
-            Console.WriteLine($"Welcome {playerName}!");
+            player.playerName = Console.ReadLine();
+            Console.WriteLine($"Welcome {player.playerName}!");
             Repick:
             ClassOptions();
-           classMethods.playerClass = Console.ReadLine().ToLower();
-            if(ClassMethods.classList.Contains(classMethods.playerClass))
+           player.playerClass = Console.ReadLine().ToLower();
+            if(ClassMethods.classList.Contains(player.playerClass))
             {
-                Console.WriteLine($"You picked {classMethods.playerClass}!");
+                Console.WriteLine($"You picked {player.playerClass}!");
                 ClassPicker(classMethods.playerClass);
             }
             else
             {
-                while(!classList.Contains(classMethods.playerClass))
+                while(!classList.Contains(player.playerClass))
                 {
-                    Console.WriteLine($"Do not act so foolish {playerName}!\n" +
+                    Console.WriteLine($"Do not act so foolish {player.playerName}!\n" +
                     $"You cannot adventure whilst professing to be {classMethods.playerClass}! Pick one from the list!");
                     goto Repick;
                 }
