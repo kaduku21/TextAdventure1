@@ -9,8 +9,7 @@ namespace TextAdventure
         public class Player
         {
             public string playerName { get; set; }
-            public string playerClass { get; set; }
-            public string playerHealth { get; set; }
+            public PickedClass playerClass { get; set; }
         }
         public class PickedClass
         {
@@ -18,5 +17,7 @@ namespace TextAdventure
             public int Health { get; set; }
             public List<Spells> Spells { get; set; }
         }
+
     }
 }
+

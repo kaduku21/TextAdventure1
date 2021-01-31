@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Threading;
 using static TextAdventure.Spells;
-
+using static TextAdventure.PlayerClasses;
+using static TextAdventure.ClassMethods;
 namespace TextAdventure
 {
-    class Program:ClassMethods
+    class Program : ClassMethods
     {
         public static void Game()
         {
             Console.WriteLine();
-            //player player = new Player();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("        (                  )              (               (      *         ");
             Console.WriteLine("   (    )\\ )            ( /(   *   )      )\\ )       *   ))\\ ) (  `        ");
@@ -26,28 +26,28 @@ namespace TextAdventure
             Console.WriteLine();
 
             Console.ForegroundColor = ConsoleColor.Red;
-            
+            Player player = new Player();
             Console.WriteLine("Welcome to CJ's Adventure game!");
             Console.Write("What is your name?: ");
-           // player.playerName = Console.ReadLine();
-           // Console.WriteLine($"Welcome {player.playerName}!");
-           // Repick:
-           // ClassOptions();
-           //player.playerClass = Console.ReadLine().ToLower();
-           // if(ClassMethods.classList.Contains(player.playerClass))
-           // {
-           //     Console.WriteLine($"You picked {player.playerClass}!");
-           //     ClassPicker(player.playerClass);
-           // }
-           // else
-           // {
-           //     while(!classList.Contains(player.playerClass))
-           //     {
-           //         Console.WriteLine($"Do not act so foolish {player.playerName}!\n" +
-           //         $"You cannot adventure whilst professing to be {classMethods.playerClass}! Pick one from the list!");
-           //         goto Repick;
-           //     }
-           // }
+            string playerName = Console.ReadLine();
+            Console.WriteLine($"Welcome {playerName}!");
+        Repick:
+            ClassOptions();
+            string selected = Console.ReadLine().ToLower();
+            if (classList.Contains(selected))
+            {
+                //Console.WriteLine($"You picked {player.playerClass.ClassName}!");
+                ClassPicker(selected, playerName);
+            }
+            else
+            {
+                while (!classList.Contains(selected))
+                {
+                    Console.WriteLine($"Do not act so foolish {player.playerName}!\n" +
+                    $"You cannot adventure whilst professing to be {selected}! Pick one from the list!");
+                    goto Repick;
+                }
+            }
             string answer = Console.ReadLine().ToLower();
             if (answer.Equals("yes") || answer.Equals("y"))
             {
