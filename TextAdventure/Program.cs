@@ -4,12 +4,16 @@ using System.Threading;
 using static TextAdventure.Spells;
 using static TextAdventure.PlayerClasses;
 using static TextAdventure.ClassMethods;
+using System.Media;
+
 namespace TextAdventure
 {
     class Program : ClassMethods
     {
         public static void Game()
         {
+            SoundPlayer soundPlayer = new SoundPlayer("music/music.wav");
+            soundPlayer.PlayLooping();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("        (                  )              (               (      *         ");
@@ -36,7 +40,7 @@ namespace TextAdventure
             string selected = Console.ReadLine().ToLower();
             if (classList.Contains(selected))
             {
-                //Console.WriteLine($"You picked {player.playerClass.ClassName}!");
+                Console.WriteLine($"You picked {selected}!");
                 ClassPicker(selected, playerName);
             }
             else

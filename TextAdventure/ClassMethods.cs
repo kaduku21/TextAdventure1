@@ -45,29 +45,48 @@ namespace TextAdventure
                    string description = "Whether scholar, skald, or scoundrel, a bard weaves magic through words and music to inspire allies, \n" +
                         "demoralize foes, manipulate minds, create illusions, and even heal wounds.\n";
                     TextTyper(description, 10);
-                    Console.Write("Do you want to proceed? Y/N: ");
-                    Spells testSpell = new Spells
+                    
+                    Spells healingWord = new Spells
                     {
-                        SpellName = "test",
-                        Action = "you test the spell",
-                        Description = "geiboi"
+                        SpellName = "Healing Word",
+                        Action = "You say a word and you restore health.",
+                        Description = "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. \n" +
+                        "This spell has no effect on undead or constructs."
                     };
-                    Spells test2spell = new Spells
+                    Spells psychicScream = new Spells
                     {
-                        SpellName = "kill me",
-                        Action = "please kill me",
-                        Description = "end my suffering"
+                        SpellName = "Psychic Scream",
+                        Action = "You hold the sides of you head and drive a psychic attack into the mind of your attacker",
+                        Description = "You unleash the power of your mind to blast the intellect of up to ten creatures of your choice that you can see within range."
+                    };
+                    Spells dissonantWhispers = new Spells
+                    {
+                        SpellName = "Dissonant Whisper",
+                        Action = "You whisper something very rude, and it hurts your target very deeply.",
+                        Description = "You whisper a discordant melody that only one creature of your choice within range can hear, \n" +
+                        "wracking it with terrible pain. The target must make a Wisdom saving throw."
                     };
                     PickedClass bard = new PickedClass
                     {
                         ClassName = "Bard",
                         Health = 20,
-                        Spells = new List<Spells> { testSpell, test2spell }
+                        Spells = new List<Spells> { psychicScream, healingWord, dissonantWhispers}
                     };
                     Player player = new Player();
                     player.playerClass = bard;
                     player.playerName = playerName;
 
+                    string SpellsText = "The bard has the following abilities: ";
+                    TextTyper(SpellsText, 10);
+                    foreach(Spells spells in bard.Spells)
+                    {
+                        Console.WriteLine();
+                        TextTyper(spells.SpellName, 10);
+                        Console.WriteLine();
+                        TextTyper(spells.Description, 10);
+                    }
+                    Console.WriteLine();
+                    Console.Write("Do you want to proceed? Y/N: ");
                     break;
 
                 //case "cleric":
